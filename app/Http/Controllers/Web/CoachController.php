@@ -29,7 +29,7 @@ class CoachController extends Controller
             'specialty' => 'required|string|max:255',
         ]);
 
-        \App\Models\Coach::create([
+        Coach::create([
             'name' => $request->name,
             'specialty' => $request->specialty,
         ]);

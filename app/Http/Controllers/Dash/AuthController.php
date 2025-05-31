@@ -19,53 +19,29 @@ class AuthController extends Controller
     {
         return view('Dash.Auth.login');
     }
-
-    // public function register(Request $request)
-    // {
-    //     // التحقق من صحة البيانات
-    //     $validator = Validator::make($request->all(), [
-    //         'email' => 'required|email|unique:users,email',
-    //         'password' => 'required|string|min:6',
-    //     ]);
-
-    //     if ($validator->fails()) {
-    //         return redirect()->back()->withErrors($validator)->withInput();
-    //     }
-
-    //     // إنشاء المستخدم الجديد
-    //     $user = User::create([
-    //         'email' => $request->email,
-    //         'password' => Hash::make($request->password),
-    //     ]);
-
-    //     // تسجيل الدخول تلقائياً بعد التسجيل
-    //     Auth::login($user);
-
-    //     return redirect()->route('homePage'); // أو أي صفحة تريدها
-    // }
-
-    // طريقة تسجيل الدخول
     public function login(Request $request)
     {
-        $credentials = $request->only('email', 'password');
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required'
+        ]);
 
-        if (Auth::attempt($credentials)) {
-            $user = Auth::user();
-
-            return view('layout.main');
-            // if ($user->role === 'admin') {
-            //     return redirect()->route('admin.dashboard');
-            // } elseif ($user->role === 'coach') {
-            //     return redirect()->route('coach.dashboard');
-            // } elseif ($user->role === 'member') {
-            //     return redirect()->route('member.home');
-            // }
-
-            return abort(403, 'Unauthorized role');
+        if (!auth()->attempt($request->only('email', 'password'))) {
+            return back()->withErrors([
+                'email' => 'بيانات الدخول غير صحيحة.',
+            ])->withInput();
         }
 
-        return back()->withErrors(['email' => 'المعلومات غير صحيحة.']);
+        if (auth()->user()->role !== 'admin') {
+            auth()->logout(); 
+            return redirect()->route('login')->withErrors([
+                'email' => 'مسموح فقط للمشرفين (admin) بالدخول.',
+            ]);
+        }
+
+        return redirect()->route('homePage')->with('success', 'أهلاً وسهلاً يا مشرف!');
     }
+
 
     public function logout(Request $request)
     {

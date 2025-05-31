@@ -4,6 +4,7 @@ namespace App\Http\Controllers\web;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUserRequest;
+use App\Models\Member;
 use Illuminate\Http\Request;
 use App\Models\User;
 
@@ -12,7 +13,7 @@ class UserController extends Controller
 
     public function index()
     {
-        $users = User::all();
+        $users = Member::all();
         return view('users.index', compact('users'));
     }
 

@@ -48,7 +48,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('coach', CoachController::class)->except(['show']);
 });*/
 
-/* 
+/*  
 Route::resource('coach', CoachController::class)->middleware(['auth']);
 */
 

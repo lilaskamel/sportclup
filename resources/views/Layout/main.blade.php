@@ -153,7 +153,7 @@
                         </div>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('coaches.index') }}">
+                            <a href="{{ route('coach.index') }}">
 
 
                                 <i class="fas fa-chalkboard-teacher"></i>

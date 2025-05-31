@@ -15,7 +15,7 @@
         </div>
     @endif
 
-    <form action="{{ route('coaches.store') }}" method="POST">
+    <form action="{{ route('coach.store') }}" method="POST">
         @csrf
 
         <div class="form-group">
@@ -29,7 +29,7 @@
         </div>
 
         <button type="submit" class="btn btn-primary">Add</button>
-        <a href="{{ route('coaches.index') }}" class="btn btn-secondary">Delete</a>
+        <a href="{{ route('coach.index') }}" class="btn btn-secondary">Delete</a>
     </form>
 </div>
 @endsection

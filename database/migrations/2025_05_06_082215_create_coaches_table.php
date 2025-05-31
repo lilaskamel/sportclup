@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->text('note');
             $table->text('descreption');
-            $table->boolean('isblocked');
+            $table->boolean('isblocked')->default(true);
              $table->foreignId('user_id')->constrained('users');
             $table->timestamps();
         });

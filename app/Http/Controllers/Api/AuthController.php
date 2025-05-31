@@ -11,7 +11,6 @@ class AuthController extends Controller
 {
     public function login(Request $request)
     {
-        // تحقق من صحة المدخلات
         $validator = Validator::make($request->all(), [
             'email'    => 'required|email',
             'password' => 'required|string',
@@ -32,16 +31,6 @@ class AuthController extends Controller
         }
 
         $user = Auth::user();
-
-        // التحقق من الدور
-        if (in_array($user->role, ['admin', 'coach'])) {
-            return response()->json([
-                'status' => false,
-                'message' => 'غير مسموح لهذا المستخدم بالدخول إلى التطبيق. يرجى الدخول عبر لوحة التحكم.',
-                'role' => $user->role
-            ], 403);
-        }
-
 
         return response()->json([
             'status' => true,
