@@ -19,7 +19,7 @@ class Member extends Model
     }
     public function subscribtions()
     {
-        return $this->belongsTo(Subscribtion::class);
+        return $this->belongsTo(Subscription::class);
     }
      public function user()
     {
