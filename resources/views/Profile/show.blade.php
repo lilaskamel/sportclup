@@ -11,7 +11,7 @@
 
     .profile-card {
         background-color: #ffffff;
-        color: #003366;
+        color: #001f3f;
         border-radius: 12px;
         padding: 30px;
         box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
@@ -19,7 +19,7 @@
     }
 
     .profile-card h1 {
-        color: #003366;
+        color: #001f3f;
         font-size: 40px;
         font-weight: bold;
         text-align: center;
@@ -27,7 +27,7 @@
     }
 
     .profile-card label {
-        color: #003366;
+        color: #001f3f;
         font-weight: 600;
     }
 
@@ -51,7 +51,7 @@
     }
 
     .btn-navy:hover {
-        background-color: #003366;
+        background-color: #001f3f;
     }
 </style>
 <br><br>

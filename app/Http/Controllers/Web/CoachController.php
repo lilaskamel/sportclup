@@ -12,13 +12,13 @@ class CoachController extends Controller
 
     public function index()
     {
-        $coaches = Coach::all();
-        return view('coaches.index', compact('coaches'));
+        $coach = Coach::all();
+        return view('coach.index', compact('coach'));
     }
 
     public function create()
     {
-        return view('coaches.create');
+        return view('coach.create');
     }
 
 
@@ -34,23 +34,23 @@ class CoachController extends Controller
             'specialty' => $request->specialty,
         ]);
 
-        return redirect()->route('coaches.index')->with('success', 'تم إضافة الكوتش بنجاح!');
+        return redirect()->route('coach.index')->with('success', 'تم إضافة الكوتش بنجاح!');
     }
 
     public function edit(Coach $coach)
     {
-        return view('coaches.edit', compact('coach'));
+        return view('coach.edit', compact('coach'));
     }
 
     public function update(Request $request, Coach $coach)
     {
         $coach->update($request->all());
-        return redirect()->route('coaches.index')->with('success', 'تم التحديث بنجاح');
+        return redirect()->route('coach.index')->with('success', 'تم التحديث بنجاح');
     }
 
     public function destroy(Coach $coach)
     {
         $coach->delete();
-        return redirect()->route('coaches.index')->with('success', 'تم الحذف');
+        return redirect()->route('coach.index')->with('success', 'تم الحذف');
     }
 }

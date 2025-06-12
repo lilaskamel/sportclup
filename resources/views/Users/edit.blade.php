@@ -23,7 +23,7 @@
                 <input type="password" name="password" class="form-control">
             </div>
 
-            <button type="submit" class="btn btn-primary">Update</button>
+            <button type="submit" class="btn btn-sm" style="background-color: #001f3f; color: white;">Update</button>
         </form>
     </div>
 @endsection

@@ -9,8 +9,12 @@ use App\Http\Controllers\Coach\DashboardController;
 use App\Http\Controllers\Web\ProfileController;
 use Illuminate\Auth\Middleware\Authenticate;
 use App\Http\Controllers\Web\CoachController;
-use App\Http\Controllers\Web\SubscribtionController;
+use App\Http\Controllers\Web\SubscriptionController;
 Use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Web\ProgramController;
+use App\Http\Controllers\Dash\ExerciseController;
+
+
 
 
 
@@ -43,43 +47,27 @@ Route::middleware(['auth'])->group(function () {
 Route::resource('users', UserController::class);
 
 
-/*
-Route::middleware(['auth'])->group(function () {
-    Route::resource('coach', CoachController::class)->except(['show']);
-});*/
-
-/*  
-Route::resource('coach', CoachController::class)->middleware(['auth']);
-*/
 
 
 Route::resource('coach', CoachController::class)->middleware(['auth']);
 
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/subscribtions', [SubscribtionController::class, 'index'])->name('subscribtions.index');
-    Route::resource('subscribtions', SubscribtionController::class);
-
+    Route::get('/subscriptions', [SubscriptionController::class, 'index'])->name('subscriptions.index');
+    Route::resource('subscriptions', SubscriptionController::class);
 });
 
 
 
+Route::resource('programs', ProgramController::class);
 
 
-// Route::get('/redirect-by-role', function () {
-//     $user = Auth::user();
 
-//     if (!$user) {
-//         return redirect('/login');
-//     }
+Route::get('/admin/exercises', [ExerciseController::class, 'index'])->name('admin.exercises.index');
 
-//     if ($user->role === 'admin') {
-//         return redirect('/admin/main');
-//     } elseif ($user->role === 'coach') {
-//         return redirect('/coach/dashboard');
-//     } elseif ($user->role === 'member') {
-//         return redirect('/member/home');
-//     }
 
-//     return abort(403);
-// });
+
+
+
+
+

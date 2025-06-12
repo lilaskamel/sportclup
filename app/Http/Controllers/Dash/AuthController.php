@@ -33,7 +33,7 @@ class AuthController extends Controller
         }
 
         if (auth()->user()->role !== 'admin') {
-            auth()->logout(); 
+            auth()->logout();
             return redirect()->route('login')->withErrors([
                 'email' => 'مسموح فقط للمشرفين (admin) بالدخول.',
             ]);
@@ -41,6 +41,25 @@ class AuthController extends Controller
 
         return redirect()->route('homePage')->with('success', 'أهلاً وسهلاً يا مشرف!');
     }
+    public function showResetForm()
+    {
+        return view('Dash.Auth.reset');
+    }
+
+    public function resetPassword(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email|exists:users,email',
+            'password' => 'required|min:6|confirmed',
+        ]);
+
+        $user = User::where('email', $request->email)->first();
+        $user->password = Hash::make('$request->password');
+        $user->save();
+
+        return redirect()->route('login')->with('success', 'تم إعادة تعيين كلمة المرور بنجاح. يمكنك تسجيل الدخول الآن.');
+    }
+
 
 
     public function logout(Request $request)

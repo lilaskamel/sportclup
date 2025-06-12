@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\ProgramController;
 use App\Http\Controllers\Api\MucelsController;
+use App\Http\Controllers\Api\CoachController;
+
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -27,12 +29,12 @@ Route::prefix('member')->group(function () {
 });
 
 
-// Route::prefix('coache')->group(function () {
-
-
-
- 
-// });
+Route::prefix('coache')->group(function () {
+    Route::get('/coach/members', [CoachController::class, 'getMembers']);
+    Route::prefix('coach')->middleware('auth:sanctum')->group(function () {
+        Route::post('programs', [CoachController::class, 'storeProgram']);
+    });
+});
 
 
 

@@ -1,8 +1,5 @@
-<!DOCTYPE html>
-<html><?php
+<?php
 return view('user');
 
 ?>
-@
 
-</html>

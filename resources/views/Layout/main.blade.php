@@ -8,7 +8,7 @@
     <link rel="icon" href="assetsDash/img/kaiadmin/favicon.ico" type="image/x-icon" />
 
     <!-- داخل resources/views/Layout/main.blade.php -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ asset('https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css') }}" rel="stylesheet">
 
 
     <!-- Fonts and icons -->
@@ -50,8 +50,10 @@
                 <!-- Logo Header -->
                 <div class="logo-header" data-background-color="dark">
                     <a href="index.html" class="logo">
-                        <img src="{{ asset('assetsDash/img/kaiadmin/logo_light.svg') }}" alt="navbar brand"
-                            class="navbar-brand" height="20" />
+
+                        <img src="{{ asset('assetsDash/img/examples/photo-8e28-4b89-992b-b7dac6d17669.png') }}"
+                            alt="navbar brand" class="navbar-brand" height="60" width="70" />
+
                     </a>
                     <div class="nav-toggle">
                         <button class="btn btn-toggle toggle-sidebar">
@@ -76,15 +78,6 @@
                                 <p>Dashboard</p>
                                 <span class="caret"></span>
                             </a>
-                            <div class="collapse" id="dashboard">
-                                <ul class="nav nav-collapse">
-                                    <li>
-                                        <a href="../demo1/index.html">
-                                            <span class="sub-item">Dashboard 1</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
                         </li>
                         <li class="nav-section">
                             <span class="sidebar-mini-icon">
@@ -177,7 +170,7 @@
                         </div>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('subscribtions.index') }}" class="nav-link">
+                            <a href="{{ route('subscriptions.index') }}" class="nav-link">
                                 <i class="fas fa-receipt"></i>
                                 <p>Subscribtions</p>
                                 <span class="caret"></span>
@@ -195,31 +188,30 @@
                         {{-- </li> --}}
                         {{-- </ul> --}}
                         {{-- </div> --}}
-                        
-                        <li class="nav-item">
-                            <a data-bs-toggle="collapse" href="#machinery">
+
+                        {{-- <li class="nav-item">
+                             <a data-bs-toggle="collapse" href="#Machinery">
                                 <i class="fas fa-table"></i>
-                                <p>Machinery</p>
+                                Machinery
                                 <span class="caret"></span>
                             </a>
-
-                        </li>
+                        </li> --}}
                         {{-- <li class="nav-item">
                             <a data-bs-toggle="collapse" href="#offers">
                                 <i class="fas fa-layer-group"></i>
                                 <p>Offers</p>
                                 <span class="caret"></span>
                             </a> --}}
-                            <div class="collapse" id="offers">
-                                <ul class="nav nav-collapse">
+                        <div class="collapse" id="offers">
+                            <ul class="nav nav-collapse">
 
-                                    <li>
-                                        <a href="offers/jsvectoroffers.html">
-                                            <span class="sub-item">Jsvectoroffers</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
+                                <li>
+                                    <a href="offers/jsvectoroffers.html">
+                                        <span class="sub-item">Jsvectoroffers</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                         </li>
                         {{-- <li class="nav-item">
                             <a data-bs-toggle="collapse" href="#notices">
@@ -228,20 +220,20 @@
                                 <p>Notices</p>
                                 <span class="caret"></span>
                             </a> --}}
-                            <div class="collapse" id="notices">
-                                <ul class="nav nav-collapse">
-                                    <li>
-                                        <a href="notices/notices.html">
-                                            <span class="sub-item">noticesJs</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="notices/sparkline.html">
-                                            <span class="sub-item">Sparkline</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
+                        <div class="collapse" id="notices">
+                            <ul class="nav nav-collapse">
+                                <li>
+                                    <a href="notices/notices.html">
+                                        <span class="sub-item">noticesJs</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="notices/sparkline.html">
+                                        <span class="sub-item">Sparkline</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                         </li>
                         <li class="nav-item">
                             <a href="complaints.html">
@@ -260,11 +252,13 @@
                         </li>-->
                         <li class="nav-item">
                             <a data-bs-toggle="collapse" href="#submenu">
-                                <i class="fas fa-bars"></i>
+                                 <i class="fas fa-dumbbell"></i>
                                 <p>Exercise</p>
                                 <span class="caret"></span>
-                            </a>
-                            <div class="collapse" id="submenu">
+                            </a>     
+
+
+                        {{-- <div class="collapse" id="submenu">
                                 <ul class="nav nav-collapse">
                                     <li>
                                         <a data-bs-toggle="collapse" href="#subnav1">
@@ -286,28 +280,8 @@
                                             </ul>
                                         </div>
                                     </li>
-                                    <li>
-                                        <a data-bs-toggle="collapse" href="#subnav2">
-                                            <span class="sub-item">Level 1</span>
-                                            <span class="caret"></span>
-                                        </a>
-                                        <div class="collapse" id="subnav2">
-                                            <ul class="nav nav-collapse subnav">
-                                                <li>
-                                                    <a href="#">
-                                                        <span class="sub-item">Level 2</span>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <span class="sub-item">Level 1</span>
-                                        </a>
-                                    </li>
                                 </ul>
-                            </div>
+                            </div> --}}
                         </li>
                     </ul>
                 </div>
