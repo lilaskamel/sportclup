@@ -25,7 +25,14 @@ class User extends Authenticatable
         'firstName',
         'lastName',
         'email',
-        'password'
+        'password',
+        'birthdate',
+        'gender',
+        'phone',
+        'joiningDate',
+        'address',
+        'role',
+        
     ];
 
     public function coach()

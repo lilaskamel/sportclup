@@ -12,7 +12,10 @@ use App\Http\Controllers\Web\CoachController;
 use App\Http\Controllers\Web\SubscriptionController;
 Use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Web\ProgramController;
-use App\Http\Controllers\Dash\ExerciseController;
+use App\Http\Controllers\web\ContactUsController;
+use App\Http\Controllers\web\ExerciseController;
+
+
 
 
 
@@ -63,11 +66,15 @@ Route::resource('programs', ProgramController::class);
 
 
 
-Route::get('/admin/exercises', [ExerciseController::class, 'index'])->name('admin.exercises.index');
+// Route::get('/admin/exercises', [ExerciseController::class, 'index'])->name('admin.exercises.index');
 
 
 
 
+Route::get('/contactus', [ContactUsController::class, 'index'])->name('contactus.index');
 
 
+
+Route::get('/exercises', [ExerciseController::class, 'index'])->name('exercises.index');
+Route::get('/exercises/{id}', [ExerciseController::class, 'show'])->name('exercises.show');
 

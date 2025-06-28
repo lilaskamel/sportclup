@@ -13,7 +13,7 @@ class UserController extends Controller
 
     public function index()
     {
-        $users = Member::all();
+        $users = User::where('role', 'member')->get();
         return view('users.index', compact('users'));
     }
 
@@ -25,7 +25,8 @@ class UserController extends Controller
     public function store(StoreUserRequest $request)
     {
         $validated = $request->validated();
-
+        
+        $validated['role'] = 'member';
         $validated['password'] = bcrypt($validated['password']);
 
         User::create($validated);

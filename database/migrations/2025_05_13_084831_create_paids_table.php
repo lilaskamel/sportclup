@@ -17,7 +17,7 @@ return new class extends Migration
             $table->decimal('price');
             $table->integer('duration');
             $table->timestamps();
-             $table->foreignId('subscribtion_id')->constrained('subscribtions');
+            //  $table->foreignId('subscribtion_id')->constrained('subscribtions');
 
         });
     }

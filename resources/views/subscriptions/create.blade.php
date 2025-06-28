@@ -8,8 +8,8 @@
             <h2 style="color: #001f3f;">Add New Subscribtions</h2>
 
             <div class="mb-3">
-                <label for="startdate" class="form-label">StartDate</label>
-                <input type="text" name="startdate" class="form-control" required>
+                <label for="startDate" class="form-label">StartDate</label>
+                <input type="text" name="startDate" class="form-control" >
             </div>
             <div class="mb-3">
                 <label for="price" class="form-label"> Price</label>

@@ -236,12 +236,13 @@
                         </div>
                         </li>
                         <li class="nav-item">
-                            <a href="complaints.html">
-                                <i class="fa fa-envelope"></i>
-                                <p>Contact Us</p>
-                                <span class="badge badge-success">4</span>
+                            <a href="{{ route('contactus.index') }}" class="nav-link d-flex align-items-center">
+                                <i class="fa fa-envelope mr-2"></i>
+                                <span>Contact Us</span>
+                                <span class="badge badge-success ml-auto">4</span>
                             </a>
                         </li>
+
                         <!--
                         <li class="nav-item">
                             <a href="../../documentation/index.html">
@@ -251,11 +252,13 @@
                             </a>
                         </li>-->
                         <li class="nav-item">
-                            <a data-bs-toggle="collapse" href="#submenu">
-                                 <i class="fas fa-dumbbell"></i>
+                            <a href="{{ route('exercises.index') }}">
+                                <i class="fas fa-dumbbell"></i>
                                 <p>Exercise</p>
                                 <span class="caret"></span>
-                            </a>     
+                            </a>
+                        </li>
+
 
 
                         {{-- <div class="collapse" id="submenu">
@@ -589,6 +592,22 @@
                 <!-- End Navbar -->
             </div>
 
+            @if (session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
+
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <strong>حدثت الأخطاء التالية:</strong>
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             @yield('body')
 
         </div>

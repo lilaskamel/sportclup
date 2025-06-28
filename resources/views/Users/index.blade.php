@@ -30,13 +30,13 @@
                 @foreach ($users as $user)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $user->firstname }}</td>
-                        <td>{{ $user->lastname }}</td>
+                        <td>{{ $user->firstName }}</td>
+                        <td>{{ $user->lastName }}</td>
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->birthdate }}</td>
                         <td>{{ $user->gender }}</td>
                         <td>{{ $user->phone }}</td>
-                        <td>{{ $user->joiningdate }}</td>
+                        <td>{{ $user->joiningDate }}</td>
                         <td>{{ $user->address }}</td>
                         <td>
                             <a href="{{ route('users.edit', $user->id) }}" class="btn btn-sm"

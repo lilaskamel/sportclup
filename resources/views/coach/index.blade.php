@@ -14,23 +14,26 @@
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>Name</th>
-                    <th>Specialty</th>
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                    <th>NOTE</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($coach as $coach)
+                @foreach ($coaches as $user)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $coach->name }}</td>
-                        <td>{{ $coach->specialty }}</td>
+                        <td>{{ $user->firstName }}</td>
+                        <td>{{ $user->lastName }}</td>
+                        <td>{{ optional($user->coach)->note ?? '—' }}</td>
+
                         <td>
-                            <a href="{{ route('coach.edit', $coach->id) }}" class="btn btn-primary btn-sm"
+                            <a href="{{ route('coach.edit', $user->id) }}" class="btn btn-primary btn-sm"
                                 style="background-color: #001f3f; color: white;">Edit</a>
 
 
-                            <form action="{{ route('coach.destroy', $coach->id) }}" method="POST" style="display:inline;">
+                            <form action="{{ route('coach.destroy', $user->id) }}" method="POST" style="display:inline;">
                                 @csrf
                                 @method('DELETE')
                                 <button onclick="return confirm('Are you sure?')" class="btn btn-sm"

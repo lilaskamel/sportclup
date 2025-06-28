@@ -14,8 +14,9 @@ return new class extends Migration
         Schema::create('subscriptions', function (Blueprint $table) {
             $table->id();
             $table->date('startDate');
+            $table->decimal('price');
             $table->text('description')->nullable();
-            $table->foreignId('member_id')->constrained('members');
+            $table->foreignId('member_id')->nullable()->constrained('members');
             $table->timestamps();
         });
     }

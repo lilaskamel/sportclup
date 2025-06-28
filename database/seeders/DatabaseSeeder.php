@@ -21,10 +21,8 @@ class DatabaseSeeder extends Seeder
 
             'firstName' => 'Mohammad',
             'lastName' => 'Ahmad',
-
-            $user = User::where('email', 'test@example.com')->first(),
-            $user->password = Hash::make('12345678'),
-            $user->save(),
+            'password' => Hash::make('12345678'),
+            'email' => 'test@example.com',
         ]);
     }
 }

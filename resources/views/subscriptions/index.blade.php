@@ -26,11 +26,9 @@
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $subscribtion->price ?? '---' }}</td>
-                        <td>{{ $subscribtion->describtion ?? '---' }}</td>
-                        <td>{{ $subscribtion->start_date ?? '---' }}</td>
+                        <td>{{ $subscribtion->description ?? '---' }}</td>
+                        <td>{{ $subscribtion->startDate ?? '---' }}</td>
                         <td>
-                            <a href="{{ route('subscriptions.edit', $subscribtion->id) }}"
-                                class="btn btn-primary btn-sm">Edit</a>
 
                             <form action="{{ route('subscriptions.destroy', $subscribtion->id) }}" method="POST"
                                 style="display:inline;">
