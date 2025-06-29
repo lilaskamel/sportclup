@@ -15,26 +15,26 @@
 
             <div class="form-group mb-3">
                 <label for="lastName">lastname</label>
-                <input type="text" name="lastName" class="form-control">
+                <input type="text" name="lastName" class="form-control" value="{{old('lastName')}}">
             </div>
             <div class="form-group mb-3">
                 <label for="email">Email</label>
-                <input type="email" name="email" class="form-control" >
+                <input type="email" name="email" class="form-control" value="{{old('email')}}" >
             </div>
 
             <div class="form-group mb-3">
                 <label for="password">Password</label>
-                <input type="password" name="password" class="form-control" >
+                <input type="password" name="password" class="form-control" value="{{old('password')}}">
             </div>
 
             <div class="form-group mb-3">
                 <label for="birthdate">Birthdate</label>
-                <input type="date" name="birthdate" class="form-control" >
+                <input type="date" name="birthdate" class="form-control" value="{{old('birthdate')}}">
             </div>
 
             <div class="form-group mb-3">
                 <label for="gender">Gender</label>
-                <select name="gender" class="form-control" >
+                <select name="gender" class="form-control" value="{{old('gender')}}">
                     <option value="">Select Gender</option>
                     <option value="male">Male</option>
                     <option value="female">Female</option>
@@ -43,17 +43,17 @@
 
             <div class="form-group mb-3">
                 <label for="phone">Phone</label>
-                <input type="text" name="phone" class="form-control" >
+                <input type="text" name="phone" class="form-control" value="{{old('phone')}}">
             </div>
 
             <div class="form-group mb-3">
                 <label for="joiningdate">Joining Date</label>
-                <input type="date" name="joiningdate" class="form-control" >
+                <input type="date" name="joiningdate" class="form-control" value="{{old('joiningDate')}}">
             </div>
 
             <div class="form-group mb-3">
                 <label for="address">Address</label>
-                <textarea name="address" class="form-control" rows="2" ></textarea>
+                <textarea name="address" class="form-control" rows="2" value="{{old('address')}}"></textarea>
             </div>
 
             <button type="submit" class="btn" style="background-color: #001f3f; color: white; border: none;">
