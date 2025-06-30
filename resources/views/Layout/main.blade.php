@@ -557,7 +557,7 @@
                                                 </div>
                                                 <div class="u-text">
                                                     <h4>My Profile</h4>
-                                                    <p class="text-muted">hello@example.com</p>
+                                                    <p class="text-muted">test@example.com</p>
 
                                                     <a href="{{ route('profile.show') }}" class="btn"
                                                         style="background-color: rgb(1, 1, 99); color: white;">

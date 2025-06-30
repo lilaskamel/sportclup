@@ -3,17 +3,17 @@
 use App\Http\Controllers\Dash\AuthController;
 use App\Http\Controllers\Dash\HomeController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\web\UserController;
+use App\Http\Controllers\Web\UserController;
 use GuzzleHttp\Middleware;
 use App\Http\Controllers\Coach\DashboardController;
 use App\Http\Controllers\Web\ProfileController;
 use Illuminate\Auth\Middleware\Authenticate;
 use App\Http\Controllers\Web\CoachController;
 use App\Http\Controllers\Web\SubscriptionController;
-Use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Web\ProgramController;
-use App\Http\Controllers\web\ContactUsController;
-use App\Http\Controllers\web\ExerciseController;
+use App\Http\Controllers\Web\ContactUsController;
+use App\Http\Controllers\Web\ExerciseController;
 
 
 
@@ -64,15 +64,7 @@ Route::middleware(['auth'])->group(function () {
 
 Route::resource('programs', ProgramController::class);
 
-
-
-// Route::get('/admin/exercises', [ExerciseController::class, 'index'])->name('admin.exercises.index');
-
-
-
-
 Route::get('/contactus', [ContactUsController::class, 'index'])->name('contactus.index');
-
 
 
 Route::get('/exercises', [ExerciseController::class, 'index'])->name('exercises.index');

@@ -23,24 +23,6 @@ class CoachController extends Controller
     }
 
 
-    // public function store(Request $request)
-    // {
-    //     $request->validate([
-    //         'name' => 'required|string|max:255',
-    //     ]);
-
-    //     $user = User::create([
-    //         'firstName' => $request->firstName,
-    //     ]);
-
-    //     Coach::create([
-    //         'note' => $request->note,
-    //         'user_id' => $user->id,
-    //     ]);
-
-    //     return redirect()->route('coach.index')->with('success', 'تم إضافة الكوتش بنجاح!');
-    // }
-
 
     public function store(Request $request)
     {
@@ -48,8 +30,15 @@ class CoachController extends Controller
             'firstName' => 'required|string|max:255',
             'lastName' => 'required|string|max:255',
             'email' => 'nullable|email|unique:users,email',
-            'note' => 'nullable|string',
             'password' => 'nullable|min:8',
+            'phone' => 'required|string|max:255',
+            'gender' => 'required|in:male,female,other',
+            'address' => 'required|string|max:255',
+            'birthdate' => 'required|date',
+            'joiningDate' => 'required|date',
+            'note' => 'nullable|string',
+            'descreption' => 'nullable|string',
+
         ]);
 
 
@@ -57,6 +46,13 @@ class CoachController extends Controller
             'firstName' => $request->firstName,
             'lastName' => $request->lastName,
             'email' => $request->email,
+            'password' => $request->password,
+            'phone' => $request->phone,
+            'gender' => $request->gender,
+            'address' => $request->address,
+            'birthdate' => $request->birthdate,
+            'joiningDate' => $request->joiningDate,
+
             'role' => 'coach', // بما أنه كوتش
             'password' => bcrypt($request->password), // كلمة مرور افتراضية إن ما تم إرسال وحدة
         ]);
@@ -81,26 +77,51 @@ class CoachController extends Controller
     {
         $request->validate([
             'firstName' => 'required|string|max:255',
+            'lastName' => 'required|string|max:255',
+            'email' => 'nullable|email|unique:users,email',
+            'password' => 'nullable|min:8',
+            'phone' => 'required|string|max:255',
+            'gender' => 'required|in:male,female,other',
+            'address' => 'required|string|max:255',
+            'birthdate' => 'required|date',
+            'joiningDate' => 'required|date',
             'note' => 'nullable|string',
+            'descreption' => 'nullable|string',
+
         ]);
 
         $user = User::findOrFail($id);
         $user->firstName = $request->firstName;
         $user->lastName = $request->lastName;
-
+        $user->email = $request->email;
+        $user->phone = $request->phone;
+        $user->gender = $request->gender;
+        $user->address = $request->address;
+        $user->birthdate = $request->birthdate;
+        $user->joiningDate = $request->joiningDate;
         $user->save();
 
         if ($user->coach) {
             $user->coach->note = $request->note;
+            $user->coach->descreption = $request->descreption;
             $user->coach->save();
         }
 
         return redirect()->route('coach.index')->with('success', 'تم تعديل بيانات المدرب بنجاح');
     }
 
-    public function destroy(Coach $coach)
+    public function destroy($id)
     {
-        $coach->delete();
-        return redirect()->route('coach.index')->with('success', 'تم الحذف');
+        $user = User::findOrFail($id);
+
+        // حذف المدرب المرتبط (إذا كان موجود)
+        if ($user->coach) {
+            $user->coach->delete();
+        }
+
+        // حذف المستخدم
+        $user->delete();
+
+        return redirect()->route('coach.index')->with('success', 'تم حذف المستخدم والمدرب التابع له بنجاح');
     }
 }
