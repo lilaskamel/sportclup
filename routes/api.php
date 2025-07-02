@@ -37,5 +37,4 @@ Route::prefix('coache')->group(function () {
 });
 
 
-
 Route::post('/login', [AuthController::class, 'login']);

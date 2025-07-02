@@ -2,17 +2,15 @@
 
 @section('body')
 <div class="container mt-5">
-    <h2 class="mb-4 text-center">{{ $exercise->name }}</h2>
+    <div class="card mx-auto" style="max-width: 600px;">
+        <img src="{{ asset('storage/' . $exercise->machineImage1) }}" class="card-img-top" alt="صورة التمرين الإضافي" style="height: 300px; object-fit: cover;">
 
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <img src="{{ asset('storage/' . $exercise->machine_image) }}" class="img-fluid rounded shadow" alt="Machine Image">
+        <div class="card-body">
+            <h3 class="card-title">{{ $exercise->machineName1 }}</h3>
+            <p class="text-muted"><strong>Note:</strong> {{ $exercise->note }}</p>
+            <p><strong>Description:</strong> {{ $exercise->description }}</p>
+            <a href="{{ route('exercises.index') }}" class="btn mt-3" style="background-color:#003366; color: white;">Back to list</a>
         </div>
-    </div>
-
-    <div class="mt-4">
-        <h5><strong>وصف التمرين:</strong></h5>
-        <p>{{ $exercise->description }}</p>
     </div>
 </div>
 @endsection

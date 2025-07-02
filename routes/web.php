@@ -49,18 +49,12 @@ Route::middleware(['auth'])->group(function () {
 
 Route::resource('users', UserController::class);
 
-
-
-
 Route::resource('coach', CoachController::class)->middleware(['auth']);
-
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/subscriptions', [SubscriptionController::class, 'index'])->name('subscriptions.index');
     Route::resource('subscriptions', SubscriptionController::class);
 });
-
-
 
 Route::resource('programs', ProgramController::class);
 

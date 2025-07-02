@@ -66,13 +66,19 @@
 
     <div class="mb-3">
         <label class="form-label">Last Name:</label>
-        <p class="form-control">{{ $user->lastname }}</p>
+        <p class="form-control">{{ $user->lastName }}</p>
     </div>
 
     <div class="mb-3">
         <label class="form-label">Email:</label>
         <p class="form-control">{{ $user->email }}</p>
     </div>
+
+    <div class="mb-3">
+        <label class="form-label"> Password:</label>
+        <p class="form-control">{{ $user->password }}</p>
+    </div>
+
 
     <div class="mb-3">
         <label class="form-label">Address:</label>
@@ -103,8 +109,7 @@
 </div>
 @endsection
 @if(session('success'))
-    <div class="alert alert-success">
-        {{ session('success') }}
-    </div>
+<div class="alert alert-success">
+    {{ session('success') }}
+</div>
 @endif
-
